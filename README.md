@@ -104,6 +104,13 @@ The `goldprices.ps1` script demonstrates how to fetch gold prices in India from 
    ```powershell
    .\goldprices.ps1
    ```
+2. **Modes of running the script**:
+   - **Interactive mode**: Displays the results in a formatted output (default)
+   - **Quiet mode**: Displays only the Indian market price (useful for automation)
+   
+   ```powershell
+   .\goldprices.ps1 -Quiet
+   ```
 
 ### What the Script Does:
 
