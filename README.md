@@ -76,3 +76,48 @@ To test different endpoints, modify the script:
 - **No Frontend Needed**: Test backend endpoints independently
 - **Fast Iteration**: Quick feedback loop for API development
 - **CI/CD Friendly**: Can be easily integrated into automated testing pipelines
+
+## Use case: Gold Prices in India
+The `goldprices.ps1` script demonstrates how to fetch gold prices in India from the international market. This is particularly useful for gold dealers and investors who need to know the price of gold in India.
+
+### Features:
+
+- **Real-time Pricing**: Fetch gold prices in real-time from the international market
+- **No Dependencies**: Pure PowerShell - no additional tools or setup required
+- **Quick Testing**: Test endpoints instantly without frontend or external tools
+- **International price**: Base price in INR per gram (from USD/oz)
+- **Breakdown**: Shows the cost breakdown
+- **Indian market price**: Applies import duty, GST, and premiums 
+  - **Import duty**: 15%
+  - **GST**: 3% (on price after import duty)
+  - **Premiums**: ~2% (dealer premiums, logistics, hedging)
+  - **Dual display**: Shows both international and Indian prices
+
+### Prerequisites:
+
+- Windows PowerShell (5.1 or later) or PowerShell Core
+- Internet connection
+
+### Usage:
+
+1. **Run the gold prices script**:
+   ```powershell
+   .\goldprices.ps1
+   ```
+
+### What the Script Does:
+
+The script performs the following steps:
+
+1. **Fetch gold prices**: Fetches gold prices in real-time from the international market and converts it to INR per gram
+2. **Calculate Indian market price**: Calculates the Indian market price of gold including import duty, GST, and premiums
+3. **Display results**: Displays the results in a formatted output
+
+### Example Output
+
+```
+Fetching 24 Karat Gold Price (INR per gram)...
+Fetching gold price from web (goldprice.org)...
+Success!
+Exchange rate: 1 USD = Rs. 83.0
+```
