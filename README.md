@@ -128,3 +128,43 @@ Fetching gold price from web (goldprice.org)...
 Success!
 Exchange rate: 1 USD = Rs. 83.0
 ```
+
+## Use case: Gold Prices Monitor
+
+The `goldprices-monitor.ps1` script demonstrates how to monitor gold prices continuously in real-time. This is particularly useful for gold dealers and investors who need to know the price of gold in India continuously.
+
+### Features:
+
+- **Real-time Pricing**: Fetch gold prices in real-time from the international market
+- **No Dependencies**: Pure PowerShell - no additional tools or setup required
+- **Quick Testing**: Test endpoints instantly without frontend or external tools
+- **International price**: Base price in INR per gram (from USD/oz)
+- **Continuous Monitoring**: Monitors gold prices continuously in real-time
+- **Timestamp**: Shows the timestamp of the price
+- **Interval**: Sets the interval for the price update
+- **Both options**: Shows both the timestamp and the price
+
+### Basic usage (updates every 1 minute)
+```powershell
+.\goldprices-monitor.ps1
+```
+### With timestamps
+```powershell
+.\goldprices-monitor.ps1 -ShowTimestamp
+```
+### Custom interval (e.g., every 30 seconds)
+```powershell
+.\goldprices-monitor.ps1 -IntervalSeconds 30
+```
+### Both options (every 30 seconds with timestamps)
+```powershell
+.\goldprices-monitor.ps1 -IntervalSeconds 30 -ShowTimestamp
+```
+
+### What the Script Does:
+
+The script performs the following steps:
+
+1. **Fetch gold prices**: Fetches gold prices in real-time from the international market and converts it to INR per gram
+2. **Calculate Indian market price**: Calculates the Indian market price of gold including import duty, GST, and premiums
+3. **Display results**: Displays the results in a formatted output
