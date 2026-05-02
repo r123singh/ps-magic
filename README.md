@@ -6,6 +6,23 @@ A collection of PowerShell scripts for various development and testing scenarios
 
 The `test-endpoint.ps1` script demonstrates how to test API endpoints directly from PowerShell. This is particularly useful for backend development where you need to quickly test endpoints without opening a browser or configuring Postman collections.
 
+## Use case: Gold Price Monitoring in PowerShell
+
+The `goldprices.ps1` script demonstrates how to fetch gold prices in India from the international market. This is particularly useful for gold dealers and investors who need to know the price of gold in India.
+
+## Use case: Trading Agent in PowerShell
+
+The `tradingagent.ps1` script demonstrates how to create a trading agent in PowerShell. This is particularly useful for traders who need to automate their trading strategies.
+
+## Use case: ElevenLabs TTS and ElevenLabs API for text to speech and speech to text.
+
+The `elevenlabs-tts.ps1` script demonstrates how to use the ElevenLabs API for text to speech and speech to text. This is particularly useful for developers who need to convert text to speech and speech to text.
+
+## Use case: OpenAI TTS and OpenAI API for text to speech and speech to text.
+
+The `openai-tts.ps1` script demonstrates how to use the OpenAI API for text to speech and speech to text. This is particularly useful for developers who need to convert text to speech and speech to text.
+
+
 ### Features:
 
 - **Error Handling**: Comprehensive error handling with detailed error messages
@@ -92,6 +109,8 @@ The `goldprices.ps1` script demonstrates how to fetch gold prices in India from 
   - **GST**: 3% (on price after import duty)
   - **Premiums**: ~2% (dealer premiums, logistics, hedging)
   - **Dual display**: Shows both international and Indian prices
+- **Excel Output**: Saves the results to an Excel file (goldprices.xlsx)
+- **MP3 Output**: Saves the results to an MP3 file (Output.mp3)
 
 ### Prerequisites:
 
@@ -168,3 +187,49 @@ The script performs the following steps:
 1. **Fetch gold prices**: Fetches gold prices in real-time from the international market and converts it to INR per gram
 2. **Calculate Indian market price**: Calculates the Indian market price of gold including import duty, GST, and premiums
 3. **Display results**: Displays the results in a formatted output
+
+ElevenLabs TTS full features basic usage:
+# List voices and save to JSON
+.\elevenlabs-tts.ps1 -Action voices -SaveVoicesToJson
+
+# List TTS models
+.\elevenlabs-tts.ps1 -Action models
+
+# Check subscription and usage
+.\elevenlabs-tts.ps1 -Action subscription
+
+# Generate speech (default voice: Sarah)
+.\elevenlabs-tts.ps1 -Action convert -Text "Hello from ElevenLabs" -OutputFile out.mp3 -PlayAudio
+
+# Tune voice behavior
+.\elevenlabs-tts.ps1 -Action convert -Text "Custom tone" -Stability 0.7 -SimilarityBoost 0.8 -ModelId eleven_flash_v2_5
+
+# Transcribe audio
+.\elevenlabs-tts.ps1 -Action transcribe -InputFile audio.mp3
+
+# View a single voice and its settings
+.\elevenlabs-tts.ps1 -Action voice -VoiceId EXAVITQu4vr4xnSDxMaL
+.\elevenlabs-tts.ps1 -Action settings -VoiceId EXAVITQu4vr4xnSDxMaL
+
+# List history
+.\elevenlabs-tts.ps1 -Action history -HistoryLimit 20
+
+
+# Basic usage (uses defaults)
+.\openai-tts.ps1
+
+# Custom text and voice
+.\openai-tts.ps1 -InputText "Hello, world!" -Voice "alloy"
+
+# Custom output file
+.\openai-tts.ps1 -OutputFile "my-speech.mp3"
+
+# Full customization
+.\openai-tts.ps1 -InputText "Custom text" -Voice "nova" -OutputFile "output.mp3"
+
+# Play audio
+.\openai-tts.ps1 -PlayAudio
+
+# Full customization with play
+.\openai-tts.ps1 -InputText "Custom text" -Voice "nova" -OutputFile "output.mp3" -PlayAudio
+
